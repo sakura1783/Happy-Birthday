@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private Flowchart flowchart;
 
+    [SerializeField] private Home home;
+
 
     void Start()
     {
@@ -19,9 +21,9 @@ public class GameManager : MonoBehaviour
         {
             //ホーム画面に移る
             flowchart.SendFungusMessage("Go_Home");
-
-            Debug.Log("GOHomeが動きました");
         }
+
+        home.SetUpHome();
     }
 
     /// <summary>
