@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Home : MonoBehaviour
 {
+    [SerializeField] private Text txtDate;
+
     [SerializeField] private CanvasGroup menuGroup;  //HomeMenuPop
 
     [SerializeField] private Button btnButler;
@@ -17,9 +20,21 @@ public class Home : MonoBehaviour
     /// </summary>
     public void SetUpHome()
     {
+        SetTodayDate();
+
         homeMenu.SetUpHomeMenu();
 
         SetUpButtons();
+    }
+
+    /// <summary>
+    /// 日付表示
+    /// </summary>
+    private void SetTodayDate()
+    {
+        var date = DateTime.Now;
+
+        txtDate.text = date.Month.ToString() + "/" + date.Day.ToString();
     }
 
     /// <summary>

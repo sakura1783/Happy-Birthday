@@ -9,11 +9,11 @@ public class HomeMenu : MonoBehaviour
     /// <summary>
     /// 生成されたbtnStoryのデータ
     /// </summary>
-    //public class StoryButtonData
-    //{
-    //    public int btnNo;
-    //    public string btnName;
-    //}
+    public class StoryButtonData
+    {
+        public int btnNo;
+        public string btnName;
+    }
 
     [SerializeField] private StoryDataSO storyDataSO;
 
@@ -41,6 +41,8 @@ public class HomeMenu : MonoBehaviour
 
     [SerializeField] private Clickable2D clickableSakura;
     [SerializeField] private Clickable2D clickableKayo;
+
+    [SerializeField] private Flowchart flowchart;
 
     //private List<StoryButtonData> storyButtonDataList = new();
 
@@ -71,6 +73,7 @@ public class HomeMenu : MonoBehaviour
         btnReturn_descliption.onClick.AddListener(OnClickBtnReturn);
         btnReturn_story.onClick.AddListener(OnClickBtnReturn);
         btnReturn_desideStory.onClick.AddListener(OnClickBtnReturn_SelectStory);
+        btnEnter.onClick.AddListener(OnClickBtnEnter);
     }
 
     /// <summary>
@@ -169,6 +172,15 @@ public class HomeMenu : MonoBehaviour
     }
 
     /// <summary>
+    /// btnEnterを押した際の処理
+    /// </summary>
+    private void OnClickBtnEnter()
+    {
+        //txtTitleと文字列が合致するブロックを実行
+        flowchart.SendFungusMessage(txtTitle.text);
+    }
+
+    /// <summary>
     /// メニュー画面の表示
     /// </summary>
     public void ShowHomeMenu()
@@ -196,22 +208,26 @@ public class HomeMenu : MonoBehaviour
     {
         for (int i = 0; i < storyDataSO.storyDataList.Count; i++)
         {
-            //var data = new StoryButtonData
-            //{
-            //    btnNo = i,
-            //    btnName = storyDataSO.storyDataList[i].storyName,
-            //};
+            var data = new StoryButtonData
+            {
+                btnNo = i,
+                btnName = storyDataSO.storyDataList[i].storyName,
+            };
 
             //storyButtonDataList.Add(data);
 
             var button = Instantiate(btnStory, storiesPlace);
 
             //子オブジェクトのTextを設定
-            button.transform.GetComponentInChildren<Text>().text = storyDataSO.storyDataList[i].storyName; //data.btnName
+            button.transform.GetComponentInChildren<Text>().text = data.btnName; //storyDataSO.storyDataList[i].storyName; //data.btnName
 
             //ボタンの初期設定
-            button.onClick.AddListener(() => OnClickBtnStory(i));  //data.btnNo  //AddListenerに引数を伴ったメソッドを渡す場合、ラムダ式を利用する
+            button.onClick.AddListener(() => OnClickBtnStory(data.btnNo));  //data.btnNo  //AddListenerに引数を伴ったメソッドを渡す場合、ラムダ式を利用する
+
+            //Debug.Log(i);
         }
+
+        //Debug.Log($"スクリプタブルオブジェクトの中身：{storyDataSO.storyDataList.Count}");
     }
 
     /// <summary>
@@ -219,6 +235,8 @@ public class HomeMenu : MonoBehaviour
     /// </summary>
     private void SetDesideStoryPop(int btnNo)
     {
+        //Debug.Log($"btnNo : {btnNo}");
+
         txtTitle.text = storyDataSO.storyDataList[btnNo].storyName;
         imgStorySprite.sprite = storyDataSO.storyDataList[btnNo].storySprite;
     }

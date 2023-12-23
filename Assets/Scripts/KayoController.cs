@@ -1,17 +1,10 @@
 using System;
-using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using Fungus;
+using UnityEngine;
 
-public enum ConversationType
-{
-    ByDate,  //日付
-    ByDayOfWeek,  //曜日
-    CasualTalk,  //雑談
-
-    count,  //enumの要素の数
-}
-
-public class SakuraController : MonoBehaviour
+public class KayoController : MonoBehaviour
 {
     [SerializeField] private Flowchart flowchart;
 
@@ -51,44 +44,46 @@ public class SakuraController : MonoBehaviour
         //もうすぐ佳代誕生日(2月15日〜17日)
         if (todayNow.Month == 2 && 15 <= todayNow.Day && todayNow.Day < 18)
         {
-            flowchart.SendFungusMessage("event1");
+            flowchart.SendFungusMessage("kEvent1");
         }
         //佳代誕生日(2月18日)
         else if (todayNow.Month == 2 && todayNow.Day == 18)
         {
-            flowchart.SendFungusMessage("event2");
+            flowchart.SendFungusMessage("kEvent2");
         }
         //もうすぐさくら誕生日(9月27日〜29日)
         else if (todayNow.Month == 9 && 27 <= todayNow.Day && todayNow.Day < 30)
         {
-            flowchart.SendFungusMessage("event3");
+            flowchart.SendFungusMessage("kEvent3");
         }
         //9月30日(さくら誕生日)
         else if (todayNow.Month == 9 && todayNow.Day == 30)
         {
-            flowchart.SendFungusMessage("event4");
+            flowchart.SendFungusMessage("kEvent4");
         }
         //雄一誕生日(12月21日)
         else if (todayNow.Month == 12 && todayNow.Day == 21)
         {
-            flowchart.SendFungusMessage("event5");
+            flowchart.SendFungusMessage("kEvent5");
         }
 
         //クリスマス(12月25日)
         else if (todayNow.Month == 12 && todayNow.Day == 25)
         {
-            flowchart.SendFungusMessage("event6");
+            flowchart.SendFungusMessage("kEvent6");
         }
         //年末(12月29〜)
         else if (todayNow.Month == 12 && 29 <= todayNow.Day)
         {
-            flowchart.SendFungusMessage("event7");
+            flowchart.SendFungusMessage("kEvent7");
         }
         //年明け(〜1月4日)
         else if (todayNow.Month == 1 && todayNow.Day < 5)
         {
-            flowchart.SendFungusMessage("event8");
+            flowchart.SendFungusMessage("kEvent8");
         }
+
+        //TODO 何かイベントがあれば追加する
 
         //上記どれにも当てはまらない場合
         else
@@ -96,8 +91,6 @@ public class SakuraController : MonoBehaviour
             //CasualTalkを実行(これをしないと会話が何も起こらなくなる)
             CasualTalk();
         }
-
-        //TODO 何かイベントがあれば追加する
     }
 
     /// <summary>
@@ -111,11 +104,11 @@ public class SakuraController : MonoBehaviour
             //5時以降22時未満
             if (5 <= todayNow.Hour && todayNow.Hour < 22)
             {
-                flowchart.SendFungusMessage("holiday1");
+                flowchart.SendFungusMessage("kHoliday1");
             }
             else if (22 <= todayNow.Hour || todayNow.Hour < 5)
             {
-                flowchart.SendFungusMessage("weekday5");
+                flowchart.SendFungusMessage("kHoliday2");
             }
         }
         //平日の場合
@@ -123,23 +116,23 @@ public class SakuraController : MonoBehaviour
         {
             if (4 <= todayNow.Hour && todayNow.Hour < 8)
             {
-                flowchart.SendFungusMessage("weekday1");
+                flowchart.SendFungusMessage("kWeekday1");
             }
             else if (8 <= todayNow.Hour && todayNow.Hour < 16)
             {
-                flowchart.SendFungusMessage("weekday2");
+                flowchart.SendFungusMessage("kWeekday2");
             }
             else if (16 <= todayNow.Hour && todayNow.Hour < 18)
             {
-                flowchart.SendFungusMessage("weekday3");
+                flowchart.SendFungusMessage("kWeekday3");
             }
             else if (18 <= todayNow.Hour && todayNow.Hour < 22)
             {
-                flowchart.SendFungusMessage("weekday4");
+                flowchart.SendFungusMessage("kWeekday4");
             }
-            else if (22 <= todayNow.Hour || todayNow.Hour < 4)  //ここは&&にしてはいけない。例えば、23時の時、右の式には当てはまらないから。
+            else if (22 <= todayNow.Hour || todayNow.Hour < 4)
             {
-                flowchart.SendFungusMessage("weekday5");
+                flowchart.SendFungusMessage("kWeekday5");
             }
         }
     }
@@ -149,7 +142,7 @@ public class SakuraController : MonoBehaviour
     /// </summary>
     private void CasualTalk()
     {
-        string[] talkType = { "talk1", "talk2", "talk3" };  //TODO 他にもあれば追加する
+        string[] talkType = { "kTalk1", "kTalk2", "kTalk3", "kTalk4", "kTalk5" };
 
         flowchart.SendFungusMessage(talkType[UnityEngine.Random.Range(0, talkType.Length)]);
     }

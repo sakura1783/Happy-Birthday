@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
         if (PlayerPrefs.GetInt("isDisable_Key") == 0)
         {
             //メインストーリーを見る
-            flowchart.SendFungusMessage("Go_MainStory");
+            flowchart.SendFungusMessage("メインストーリー(誕生日)");
         }
         //すでにメインストーリーを見ている場合
         else

@@ -15,10 +15,7 @@ MonoBehaviour:
   storyDataList:
   - storyNo: 0
     storyName: "\u30E1\u30A4\u30F3\u30B9\u30C8\u30FC\u30EA\u30FC(\u8A95\u751F\u65E5)"
-    storySprite: {fileID: 0}
+    storySprite: {fileID: 21300000, guid: 5d8b2c4ccd76b424ebef94921c83dd79, type: 3}
   - storyNo: 1
     storyName: "\u306A\u3093\u304B\u5C0F\u3055\u304F\u3066\u304B\u308F\u3044\u3044\u3084\u3064"
     storySprite: {fileID: 21300000, guid: a9060899da91440b1b0a231226542853, type: 3}
-  - storyNo: 2
-    storyName: "\u307E\u3069\u304B\u2606\u30DE\u30AE\u30AB"
-    storySprite: {fileID: 0}
