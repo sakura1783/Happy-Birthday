@@ -3549,6 +3549,7 @@ GameObject:
   - component: {fileID: 1215543053}
   - component: {fileID: 1215543052}
   - component: {fileID: 1215543051}
+  - component: {fileID: 1215543054}
   m_Layer: 0
   m_Name: ClickableSprite_Kayo
   m_TagString: Untagged
@@ -3664,6 +3665,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1215543054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215543049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430bf7171c4fc42019e81d0e26973551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flowchart: {fileID: 1670811358}
 --- !u!1 &1275428383
 GameObject:
   m_ObjectHideFlags: 0
@@ -5319,9 +5333,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1670811630}
+  - {fileID: 1670811399}
   selectedCommands:
-  - {fileID: 1670811629}
+  - {fileID: 1670811585}
   variables: []
   description: 
   stepPause: 0
@@ -5682,7 +5696,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 355.58588
-    y: -13.995592
+    y: -12.027092
     width: 151.37778
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -6324,7 +6338,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 315.3532
-    y: 463.7359
+    y: 465.7044
     width: 109.05501
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -9795,12 +9809,12 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 1215543049}
-  targetComponentAssemblyName: Fungus.Clickable2D, Fungus, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: KayoController, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: Clickable2D
-  targetMethod: 
-  targetMethodText: 
+  targetComponentText: KayoController
+  targetMethod: GetCurrentDateTime
+  targetMethodText: 'GetCurrentDateTime (): Void'
   methodParameters: []
   saveReturnValue: 0
   returnValueVariableKey: 
@@ -12270,6 +12284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1948266850}
   - component: {fileID: 1948266849}
+  - component: {fileID: 1948266851}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -12306,6 +12321,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1948266851
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948266848}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c1883e0a89270463cad1d4616d00e4d8, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1951164079
 GameObject:
   m_ObjectHideFlags: 0

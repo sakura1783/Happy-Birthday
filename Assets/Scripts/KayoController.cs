@@ -40,7 +40,6 @@ public class KayoController : MonoBehaviour
     /// </summary>
     private void ConversationByDate()
     {
-        //TODO 無くすならコメントアウト
         //もうすぐ佳代誕生日(2月15日〜17日)
         if (todayNow.Month == 2 && 15 <= todayNow.Day && todayNow.Day < 18)
         {

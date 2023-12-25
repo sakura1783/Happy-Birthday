@@ -7,9 +7,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Home home;
 
+    //[SerializeField] private AudioSource bgmSource;
+
 
     void Start()
     {
+        //PlayBGM();
+
         //まだメインストーリーを1回も見ていない場合
         if (PlayerPrefs.GetInt("isDisable_Key") == 0)
         {
@@ -39,4 +43,12 @@ public class GameManager : MonoBehaviour
         //ホーム画面に移る
         flowchart.SendFungusMessage("Go_Home");
     }
+
+    /// <summary>
+    /// BGM再生
+    /// </summary>
+    //private void PlayBGM()
+    //{
+    //    bgmSource.Play();
+    //}
 }
